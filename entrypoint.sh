@@ -58,7 +58,7 @@ sed -i '/CRON=0/c\CRON=1' /etc/default/spamassassin
 sed -i '/CRON=0/c\CRON=1' /etc/cron.daily/spamassassin
 
 
-exec /usr/bin/cron -f &
+exec /usr/sbin/cron -f &
 
 exec /usr/sbin/spamd \
 --ipv4 --allowed-ips=$ALLOWED_IP_RANGES --listen-ip \
