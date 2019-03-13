@@ -25,7 +25,7 @@ fi
 
 cat <<EOT > /etc/spamassassin/local.cf
 
-required_score 10.0
+required_score 5.0
 
 use_pyzor 1
 
