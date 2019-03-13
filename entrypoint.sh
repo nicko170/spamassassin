@@ -45,7 +45,7 @@ bayes_sql_password      $BAYES_PASSWORD
 
 bayes_sql_override_username bayes
 
-skip_rbl_checks 1
+skip_rbl_checks 0
 EOT
 
 exec /usr/sbin/spamd \
