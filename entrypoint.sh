@@ -47,6 +47,16 @@ bayes_sql_override_username bayes
 
 skip_rbl_checks 0
 EOT
+cat <<EOT > /etc/spamassassin/custom.pre
+loadplugin Mail::SpamAssassin::Plugin::FromNameSpoof
+loadplugin Mail::SpamAssassin::Plugin::Phishing
+loadplugin Mail::SpamAssassin::Plugin::PDFInfo
+EOT
+
+## Enable Crontabs
+sed -i '/CRON=0/c\CRON=1' /etc/default/spamassassin
+sed -i '/CRON=0/c\CRON=1' /etc/cron.daily/spamassassin
+
 
 exec /usr/sbin/spamd \
 --ipv4 --allowed-ips=$ALLOWED_IP_RANGES --listen-ip \
