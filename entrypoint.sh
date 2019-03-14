@@ -25,6 +25,8 @@ fi
 
 cat <<EOT > /etc/spamassassin/local.cf
 
+trusted_networks $TRUSTED_NETWORKS
+
 required_score 5.0
 
 use_pyzor 1
